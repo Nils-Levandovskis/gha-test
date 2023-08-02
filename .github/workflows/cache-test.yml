@@ -37,7 +37,13 @@ jobs:
         with:
           path: ${{ env.cachePath }}
           key: artifact-${{ github.run_id }}
-      
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact-${{ github.run_id }}
+          path: ${{ env.cachePath }}
+          
       - name: Restore Artifact
         uses: actions/cache/restore@v3
         with:
