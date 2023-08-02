@@ -49,6 +49,8 @@ jobs:
         with:
           path: first/
           key: artifact-${{ github.run_id }}
+          restore-keys: |
+            artifact-
 
       - name: Confirm restore
         run: |
