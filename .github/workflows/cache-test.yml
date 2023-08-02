@@ -47,11 +47,12 @@ jobs:
       - name: Restore Artifact
         uses: actions/cache/restore@v3
         with:
-          path: first/
+          path: ${{ env.cachePath }}
           key: artifact-${{ github.run_id }}
           restore-keys: |
             artifact-
             artifact
+          
             
       - name: Confirm restore
         run: |
