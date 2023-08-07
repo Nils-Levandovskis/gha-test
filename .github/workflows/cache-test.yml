@@ -24,13 +24,14 @@ jobs:
           pwd
           mkdir -p first/second
           touch first/second/file.txt
+          touch baseFile.txt
           echo "pwd ls"
           ls
           echo "first ls"
           ls first/
           echo "second ls"
           ls first/second/
-          echo "cachePath=first/second/file.txt" >> $GITHUB_ENV
+          echo "cachePath=baseFile.txt" >> $GITHUB_ENV
       
       - name: Cache Artifact
         uses: actions/cache/save@v3
