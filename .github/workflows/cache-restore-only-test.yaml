@@ -27,6 +27,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: first/second/file.txt
+          fail-on-cache-miss: true
           key: artifact-${{ github.run_id }}
           restore-keys: |
             artifact-
