@@ -22,10 +22,9 @@ jobs:
       
       - name: Skip if not set
         if: ${{ inputs.test != '' }}
-        uses: actions/cache/restore@v3
-        with:
-          path: first/second/file.txt
-          fail-on-cache-miss: false
-          key: artifact-${{ github.run_id }}
-          restore-keys: |
-            artifact-
+        shell: bash
+        run: |
+          echo "Ruh Roh"
+
+      - name: Skip in composite action
+        uses: ./.github/composite-actions/input-test-comp
