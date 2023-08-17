@@ -9,6 +9,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: I exist
+      shell: bash
+      run: |
+        echo "UMMMMM HELLLOOO?"
+
     - name: Skip if no input
       if: ${{ inputs.test != '' }}
       shell: bash
