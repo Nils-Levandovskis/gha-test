@@ -23,6 +23,8 @@ jobs:
           path: tableTest.py
   consume:
     runs-on: ubuntu-latest
+    needs: 
+      - build
     steps:
       - uses: actions/checkout@v3
 
