@@ -1,0 +1,16 @@
+name: input-test-comp
+description: Check skip step behavior
+
+inputs:
+  test:
+    required: false
+    type: string
+
+runs:
+  using: composite
+  steps:
+    - name: Skip if no input
+      if: ${{ inputs.test != '' }}
+      shell: bash
+      run: |
+        echo "Ruh Roh"
