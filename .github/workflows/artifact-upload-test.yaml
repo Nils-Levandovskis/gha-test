@@ -21,4 +21,22 @@ jobs:
         with:
           name: "pyArtifact"
           path: tableTest.py
-          
+  consume:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: "pyArtifact"
+          path: .action
+
+      - name: Confirm download
+        shell: bash
+        run: |
+          echo "pwd ls"
+          ls
+          cd .auto
+          echo ".auto/ ls"
+          ls
