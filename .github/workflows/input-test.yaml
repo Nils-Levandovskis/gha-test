@@ -20,6 +20,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Nonexistent input Default test
+        env:
+          INPUT: ${{ inputs.missing || 'Default' }}
+        shell: bash
+        run: |
+          echo "Input variable"
+          echo "$INPUT"
+          echo "After input variable"
+
       - name: Default test
         env:
           INPUT: ${{ inputs.test || 'Default' }}
