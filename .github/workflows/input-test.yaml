@@ -19,6 +19,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+
+      - name: Default test
+        env:
+          INPUT: ${{ inputs.test || 'Default' }}
+        shell: bash
+        run: |
+          echo "Input variable"
+          echo "$INPUT"
+          echo "After input variable"
       
       - name: Skip if not set
         if: ${{ inputs.test != '' }}
