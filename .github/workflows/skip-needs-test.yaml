@@ -1,0 +1,34 @@
+name: Cache Restore Only
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_needed:
+        required: false
+        type: boolean
+        default: true
+      skip_needy:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  needed:
+    if: ${{ !inputs.skip_needed }}
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:      
+      - name: Say Hi
+        run: |
+          echo "Hi world"
+  needy:
+    if: ${{ !inputs.skip_needy }}
+    needs: [needed]
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+      - name: Say Hello
+        run: |
+          echo "Hello world"
